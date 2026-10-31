@@ -1,0 +1,12 @@
+Copyright (c) 2026 Prince Upadhyay. All rights reserved, except for the narrow
+evaluation permission stated in EVALUATION_LICENSE.txt.
+
+People may inspect, cite, and privately evaluate this release under that
+custom license. Production or real-world deployment, commercial use,
+integration into a product or service, and redistribution require separate
+written permission or a paid license from the copyright holder.
+
+This notice applies only to project material for which the named rights holder
+owns the relevant rights. Third-party works and dependencies retain their own
+copyrights and license terms. The project requires the separately installed
+cryptography package; it is not included in this archive.
