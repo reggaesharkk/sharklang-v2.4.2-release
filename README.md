@@ -1,5 +1,7 @@
 # SharkLang Governed AI — v2.4.2 Security Review Release
 
+[![Release validation](https://github.com/reggaesharkk/sharklang-v2.4.2-release/actions/workflows/release-validation.yml/badge.svg)](https://github.com/reggaesharkk/sharklang-v2.4.2-release/actions/workflows/release-validation.yml)
+
 **Author:** Prince Upadhyay · [ORCID 0009-0002-1170-4487](https://orcid.org/0009-0002-1170-4487)  
 **Repository:** <https://github.com/reggaesharkk/sharklang-v2.4.2-release>  
 **Research portfolio:** <https://github.com/reggaesharkk/Reggae-shark-universe->  
@@ -26,6 +28,10 @@ The evidence labels and limits follow the claim-boundary practice used across th
 This release uses a custom **SharkLang Evaluation License 1.0**, not MIT or Apache. The license allows people to inspect, cite, download, and privately run or modify copies for non-commercial evaluation, research, testing, or security review. Production or real-world deployment, commercial use, integration into a product or service, and redistribution require separate written permission or a paid license from the copyright holder. Read [`EVALUATION_LICENSE.txt`](./EVALUATION_LICENSE.txt) and [`RIGHTS_RESERVED.txt`](./RIGHTS_RESERVED.txt) before use.
 
 Third-party works and dependencies retain their own terms. This page and the archive do not claim rights over material outside the copyright holder's ownership.
+
+## Continuous integration
+
+GitHub Actions checks the repository checksums, ZIP integrity, and both archive manifests, then runs the bundled release validation on Ubuntu x86_64 with Python 3.12 and 3.14. The workflow does not call AI providers or use API keys.
 
 ## Citation
 
