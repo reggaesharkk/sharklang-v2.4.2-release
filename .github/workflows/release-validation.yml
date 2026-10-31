@@ -1,0 +1,91 @@
+name: SharkLang release validation
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Ubuntu / Python ${{ matrix.python-version }}
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.14"]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Verify repository checksums
+        run: sha256sum --check SHA256SUMS.txt
+
+      - name: Extract and verify published archive
+        run: |
+          python - <<'PY'
+          import hashlib
+          import stat
+          import zipfile
+          from pathlib import Path, PurePosixPath
+
+          archive_path = Path("SHARKLANG_GOVERNED_AI_REVIEW_RELEASE_20261101_FINAL.zip")
+          destination = Path("ci-bundle")
+          with zipfile.ZipFile(archive_path) as archive:
+              bad_member = archive.testzip()
+              if bad_member:
+                  raise SystemExit(f"ZIP CRC check failed: {bad_member}")
+              for info in archive.infolist():
+                  name = info.filename
+                  member = PurePosixPath(name)
+                  if (
+                      member.is_absolute()
+                      or ".." in member.parts
+                      or "\\" in name
+                      or (member.parts and ":" in member.parts[0])
+                      or stat.S_IFMT(info.external_attr >> 16) == stat.S_IFLNK
+                  ):
+                      raise SystemExit(f"Unsafe ZIP entry: {name}")
+              archive.extractall(destination)
+
+          bundle = destination / "SHARKLANG_GOVERNED_AI_REVIEW_RELEASE_20261101"
+          for base in (bundle, bundle / "release"):
+              manifest = base / "SHA256SUMS.txt"
+              listed = {}
+              for line in manifest.read_text(encoding="utf-8").splitlines():
+                  expected, relative = line.split("  ", 1)
+                  path = PurePosixPath(relative)
+                  if path.is_absolute() or ".." in path.parts or "\\" in relative:
+                      raise SystemExit(f"Unsafe manifest path: {relative}")
+                  if relative in listed:
+                      raise SystemExit(f"Duplicate manifest entry: {relative}")
+                  listed[relative] = expected
+                  target = base.joinpath(*path.parts)
+                  if not target.is_file():
+                      raise SystemExit(f"Manifest file missing: {relative}")
+                  actual = hashlib.sha256(target.read_bytes()).hexdigest()
+                  if actual != expected:
+                      raise SystemExit(f"Manifest hash mismatch: {relative}")
+              present = {
+                  path.relative_to(base).as_posix()
+                  for path in base.rglob("*")
+                  if path.is_file() and path != manifest
+              }
+              if present != set(listed):
+                  raise SystemExit(
+                      f"Manifest coverage mismatch at {base}: "
+                      f"missing={sorted(present - set(listed))}, "
+                      f"unlisted={sorted(set(listed) - present)}"
+                  )
+          PY
+
+      - name: Run tests and artifact validation
+        run: python tools/live_validate.py
+        working-directory: ci-bundle/SHARKLANG_GOVERNED_AI_REVIEW_RELEASE_20261101
