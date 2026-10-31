@@ -7,7 +7,7 @@
 **Research portfolio:** <https://github.com/reggaesharkk/Reggae-shark-universe->  
 **Release date:** 1 November 2026 · **Version:** 2.4.2
 
-SharkLang is a small policy language and runtime used here to demonstrate a governed AI request flow. The release archive includes the compiler/runtime, tests, a signed example package and Lean certificate, verification logs, review inputs, and an optional live-provider demo.
+I built SharkLang as a small policy language and runtime for examining an approval-gated AI request flow. I included the compiler/runtime, tests, a signed example package and Lean certificate, verification logs, review inputs, and an optional live-provider demo.
 
 ## Release archive
 
@@ -19,19 +19,19 @@ The archive contains its own SHA-256 manifest and Windows and Ubuntu run logs. T
 
 ## Scope and evidence boundary
 
-The tests, signed example, Lean certificate, and local Witness demonstrate the behavior of the included implementation under the recorded checks. They do not establish production security, an independently operated approval service, or assurance for every environment. The AI demo's purchase amount and spending cap are simulated policy inputs; it does not process payments. Provider calls in the demo are real network requests when explicitly run with `--live`.
+I include the tests, signed example, Lean certificate and local Witness as evidence of the included implementation under the recorded checks. They do not establish production security, an independently operated approval service, or assurance for every environment. The demo's purchase amount and spending cap are simulated policy inputs; it does not process payments. Provider calls are real network requests only when I explicitly run the demo with `--live`.
 
-The evidence labels and limits follow the claim-boundary practice used across the [Reggae Shark Universe portfolio](https://github.com/reggaesharkk/Reggae-shark-universe-).
+I use the same evidence labels and claim boundaries across my [Reggae Shark Universe portfolio](https://github.com/reggaesharkk/Reggae-shark-universe-).
 
 ## Rights and licensing
 
-This release uses a custom **SharkLang Evaluation License 1.0**, not MIT or Apache. The license allows people to inspect, cite, download, and privately run or modify copies for non-commercial evaluation, research, testing, or security review. Production or real-world deployment, commercial use, integration into a product or service, and redistribution require separate written permission or a paid license from the copyright holder. Read [`EVALUATION_LICENSE.txt`](./EVALUATION_LICENSE.txt) and [`RIGHTS_RESERVED.txt`](./RIGHTS_RESERVED.txt) before use.
+I publish this release under a custom **SharkLang Evaluation License 1.0**, not MIT or Apache. I allow inspection, citation, downloading, and private use or modification for non-commercial evaluation, research, testing, or security review. Production or real-world deployment, commercial use, product or service integration, and redistribution require my separate written permission or a paid license. Read [`EVALUATION_LICENSE.txt`](./EVALUATION_LICENSE.txt) and [`RIGHTS_RESERVED.txt`](./RIGHTS_RESERVED.txt) before use.
 
 Third-party works and dependencies retain their own terms. This page and the archive do not claim rights over material outside the copyright holder's ownership.
 
 ## Continuous integration
 
-GitHub Actions checks the repository checksums, ZIP integrity, and both archive manifests, then runs the bundled release validation on Ubuntu x86_64 with Python 3.12 and 3.14. The workflow does not call AI providers or use API keys.
+I added provider-free GitHub Actions checks for repository checksums, ZIP integrity, both archive manifests, and the bundled release validation on Ubuntu x86_64 with Python 3.12 and 3.14. The workflow does not call AI providers or use API keys.
 
 ## Citation
 
