@@ -29,6 +29,6 @@ Third-party works and dependencies retain their own terms. This page and the arc
 
 ## Citation
 
-The Zenodo DOI and record link will be added here after the record is published.
+The v2.4.2 release is archived on Zenodo: [10.5281/zenodo.23841845](https://doi.org/10.5281/zenodo.23841845) ([record page](https://zenodo.org/records/23841845)).
 
 **Contact:** [starxshark@gmail.com](mailto:starxshark@gmail.com)
