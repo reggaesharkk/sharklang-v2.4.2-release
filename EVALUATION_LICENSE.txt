@@ -1,6 +1,6 @@
 SHARKLANG EVALUATION LICENSE 1.0
 Copyright (c) 2026 Prince Upadhyay. All rights reserved.
-Effective date: 31 October 2026
+Effective date: 1 November 2026
 
 1. Limited permission
 

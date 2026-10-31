@@ -3,15 +3,15 @@
 **Author:** Prince Upadhyay · [ORCID 0009-0002-1170-4487](https://orcid.org/0009-0002-1170-4487)  
 **Repository:** <https://github.com/reggaesharkk/sharklang-v2.4.2-release>  
 **Research portfolio:** <https://github.com/reggaesharkk/Reggae-shark-universe->  
-**Release date:** 31 October 2026 · **Version:** 2.4.2
+**Release date:** 1 November 2026 · **Version:** 2.4.2
 
 SharkLang is a small policy language and runtime used here to demonstrate a governed AI request flow. The release archive includes the compiler/runtime, tests, a signed example package and Lean certificate, verification logs, review inputs, and an optional live-provider demo.
 
 ## Release archive
 
-Download [`SHARKLANG_GOVERNED_AI_REVIEW_RELEASE_20261031_FINAL.zip`](./SHARKLANG_GOVERNED_AI_REVIEW_RELEASE_20261031_FINAL.zip).
+Download [`SHARKLANG_GOVERNED_AI_REVIEW_RELEASE_20261101_FINAL.zip`](./SHARKLANG_GOVERNED_AI_REVIEW_RELEASE_20261101_FINAL.zip).
 
-**SHA-256:** `ec09756f685e3ae905f9533bf6c6eed29425bbcfba30ce9ea15091728eed12f1`
+**SHA-256:** `d347cb51591d7e1ee5e65a5903fe862663081574f027cdb9db86cf80a1a0027d`
 
 The archive contains its own SHA-256 manifest and Windows and Ubuntu run logs. The logs record 70 tests on each platform: 69 passed with one POSIX-only skip on Windows ARM64, and 70 passed on Ubuntu aarch64. The release README documents the commands and environments.
 
@@ -29,6 +29,6 @@ Third-party works and dependencies retain their own terms. This page and the arc
 
 ## Citation
 
-A Zenodo record is being prepared for this release. Its DOI and record link will be added here after publication.
+The Zenodo DOI and record link will be added here after the record is published.
 
 **Contact:** [starxshark@gmail.com](mailto:starxshark@gmail.com)
